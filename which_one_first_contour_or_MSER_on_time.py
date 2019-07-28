@@ -1,7 +1,7 @@
 # comparision between using contours or MSER first on time they take,
 # to find words or approximating to words for Document denoising
 # for example: time by using contour then MSER: 4.744698407
-#              time by using contour then MSER: 2.253134167
+#              time by using MSER then contour: 2.253134167
 
 import cv2
 import numpy as np
@@ -71,4 +71,4 @@ for cnt in conyours:
 
 cv2.imwrite('which_one_first_MSER_then_contour.jpg' , final)
 e4 = cv2.getTickCount()
-print('time by using contour then MSER: '+str((e4-e3)/cv2.getTickFrequency()))
+print('time by using MSER then contour: '+str((e4-e3)/cv2.getTickFrequency()))
