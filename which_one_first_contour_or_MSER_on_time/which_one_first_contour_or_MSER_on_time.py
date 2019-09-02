@@ -35,7 +35,6 @@ final = cv2.bitwise_or(final, img)
 
 
 cv2.imwrite('which_one_first_contour_then_MSER.jpg' , final)
-cv2.imwrite('which_one_first_contour_then.jpg' , imgCM)
 e2 = cv2.getTickCount()
 print('time by using contour then MSER: '+str((e2-e1)/cv2.getTickFrequency()))
 
@@ -50,7 +49,7 @@ mser = cv2.MSER_create()
 gray = cv2.cvtColor(imgMC , cv2.COLOR_BGR2GRAY)
 regions = mser.detectRegions(gray)
 for p in regions[0]:  # convert them to list that can be used for polygons
-        cv2.fillPoly(final, [cv2.convexHull(p.reshape(-1, 1, 2)) ], 0)
+        cv2.fillPoly(final, [cv2.convexHull(p.reshape(-1, 1, 2))], 0)
         cv2.fillPoly(imgMC, [cv2.convexHull(p.reshape(-1, 1, 2))], (255,255,255))
 final = cv2.bitwise_or(final, img)
 
